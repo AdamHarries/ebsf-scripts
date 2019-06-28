@@ -27,7 +27,8 @@ def main():
     spreadsheet_filename = args.spreadsheet_filename
 
     # Load the spreadsheet directly into pandas
-    fr = pd.read_excel(io=spreadsheet_filename, sheet_name="Items")
+    # Orders/Tickets/Extras/Transactions
+    fr = pd.read_excel(io=spreadsheet_filename, sheet_name="Tickets")
 
     # Print the income by ticket type, and total tickets purchased of each type
     tickets = fr.groupby(["Ticket Type"])["Total"].agg(['sum', 'count'])
